@@ -1,4 +1,6 @@
 from pathlib import Path
+import sqlite3
+import time
 
 sensor_mapping={
 	'28-3c01d6074879':'Vorlauf_Solar',
@@ -14,9 +16,21 @@ def read_temp(device_id):
 	sensor_temperature=int(sensor_output.split('t=')[1])/1000
 	return sensor_temperature
 
-
+def save_to_db(cursor, device_id, device_name, temperature):
+	print(device_id, device_name, temperature)
+	cursor.execute(f'''
+	INSERT INTO readings(device_id, device_name, reading_time, reading_value)
+	VALUES ('{device_id}','{device_name}',{int(time.time())},{temperature})
+	''')
 
 def main():
-	print(read_temp('28-3c01d6074879'))
+	conn = sqlite3.connect('db_temperature.db')
+	cursor=conn.cursor()
+	for device_id, device_name in sensor_mapping.items():
+		save_to_db(cursor, device_id, device_name, read_temp(device_id))
+	conn.commit()
+	cursor.close()
+	conn.close()
 
 main()
+
