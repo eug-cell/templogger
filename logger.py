@@ -3,12 +3,12 @@ import sqlite3
 import time
 
 sensor_mapping={
-	'28-3c01d6074879':'Vorlauf_Solar',
-	'28-3c01d6076837':'Rücklauf_Solar',
-	'28-3c01d607b233':'Vorlauf_Speicher',  
-	'28-3c01d60753fe':'Mitte_Speicher',   
-	'28-3c01d6078f50':'Rücklauf_Speicher',    
-	'28-3c01d607cdd0':'Vorlauf_Fußbodenheizung',  
+	'28-3c01d6074879':'Vorlauf_Fußbodenheizung_vor_Mischer',
+	'28-3c01d6076837':'Speicher_Oben',
+	'28-3c01d607b233':'Rücklauf_Fußbodenheizung_nach_Mischer',  
+	'28-3c01d60753fe':'Vorlauf_Fußbodenheizung_nach_Mischer',   
+	'28-3c01d6078f50':'Rücklauf_Fußbodenheizung_vor_Mischer',    
+	'28-3c01d607cdd0':'Speicher_Mitte',  
 }
 
 def read_temp(device_id):
