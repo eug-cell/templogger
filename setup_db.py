@@ -12,6 +12,21 @@ cursor.execute(
     );
     """
 )
+cursor.execute(
+    """
+    CREATE TABLE IF NOT EXISTS operational_data (
+        key text PRIMARY KEY,
+        value real
+    );
+    """
+)
+cursor.execute(
+    """
+    INSERT INTO operational_data(key, value)
+    VALUES ('last_error_log', NULL) ON CONFLICT DO NOTHING;
+    """
+)
 
 cursor.close()
+conn.commit()
 conn.close()

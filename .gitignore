@@ -1,5 +1,8 @@
 # macOS stuff
 ._*
 
+# logs
+*.log*
+
 # database
 db_temperature.db
