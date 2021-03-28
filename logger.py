@@ -8,7 +8,11 @@ sensor_mapping={
 	'28-3c01d607b233':'Rücklauf_Fußbodenheizung_nach_Mischer',  
 	'28-3c01d60753fe':'Vorlauf_Fußbodenheizung_nach_Mischer',   
 	'28-3c01d6078f50':'Rücklauf_Fußbodenheizung_vor_Mischer',    
-	'28-3c01d607cdd0':'Speicher_Mitte',  
+	'28-3c01d607cdd0':'Speicher_Mitte', 
+	'28-3c01d6070050':'?'
+	'28-3c01d607152b':'??'
+	'28-3c01d6075bd4':'???'
+	'28-3c01d607666e':'????'
 }
 
 def read_temp(device_id):
