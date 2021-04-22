@@ -1,8 +1,8 @@
-# templogger
+# Templogger
 
-RaspberryPi temperature logger 
+RaspberryPi temperature logger
 
-## setup
+## Setup
 
 Add to `/boot/config.txt`
 
@@ -12,10 +12,10 @@ gpiopin=4
 pullup=on
 ```
 
-To creat a new database run following commands: `python3 setup_db.py`
-This is only necessary if no database exists previously
+To create a new database run following command: `python3 setup_db.py`
+This is only necessary if no database exists previously or a new table is addded.
 
-## check database manually (sqlite3)
+## Check Database Manually (sqlite3)
 
 To check the database manually run following command: `sqlite3 db_temperature.db`
 This will open the SQL console. In this you can run any SQL command. For example the following:
@@ -25,8 +25,8 @@ This will open the SQL console. In this you can run any SQL command. For example
 select * from readings;
 ```
 
-## setup regular excecution
+## Setup Regular Execution
 
-To run a script in a regualr interval (e.g. every 5 min) we use the programm `cron`.
+To run a script in a regular interval (e.g. every 5 min) we use the program `cron`.
 To set this up run the following command: `crontab -e`
-And paste following text if it doesn´t exist already: `*/5 * * * * cd /home/pi/templogger && python3 logger.py`
+And paste following text if it does not exist already: `*/5 * * * * cd /home/pi/templogger && python3 logger.py`
